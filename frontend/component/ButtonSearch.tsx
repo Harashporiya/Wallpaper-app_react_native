@@ -2,7 +2,7 @@ import { View, Text,Image, TextInput, StyleSheet, ScrollView, TouchableHighlight
 import React from 'react'
 import { Searchbar } from 'react-native-paper';
 import { useState,useEffect } from 'react';
-import { API_KEY } from '../API/APi';
+import { API_KEY } from '../../../API/APi';
 import { MasonryFlashList } from "@shopify/flash-list";
 import { getColumnCount, wp } from './Common';
 import ImageCard from './ImageCard'
