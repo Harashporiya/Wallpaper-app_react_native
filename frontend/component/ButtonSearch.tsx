@@ -1,16 +1,17 @@
-import { View, Text,Image, TextInput, StyleSheet, ScrollView, TouchableHighlight,FlatList } from 'react-native'
+import { View, Text,Image,  StyleSheet, ScrollView, TouchableHighlight} from 'react-native'
 import React from 'react'
-import { Searchbar } from 'react-native-paper';
+import { Button, Searchbar } from 'react-native-paper';
 import { useState,useEffect } from 'react';
 import { API_KEY } from '../../../API/APi';
 import { MasonryFlashList } from "@shopify/flash-list";
 import { getColumnCount, wp } from './Common';
 import ImageCard from './ImageCard'
+import { useNavigation } from '@react-navigation/native';
 
 
 const ButtonSearch = () => {
     const [searchQuery, setSearchQuery] = React.useState('');
-
+  const navigation = useNavigation()
 
   const categories = [
     'backgrounds', 'fashion', 'nature', 'science', 'education', 'feelings', 'health', 
@@ -53,7 +54,14 @@ const ButtonSearch = () => {
   
    const columns = getColumnCount();
   return (
-    <ScrollView >
+    <>
+      
+      {/* <View style={{ marginTop: 0 }}>
+      <Text style={{ fontSize: 30, padding: 10, backgroundColor: "#e6e6fa" }}>Pixels</Text>
+    </View> */}
+
+
+    <ScrollView style={{marginBottom:0}} >
     <View style={styles.container}>
       <Searchbar
       placeholder="Search for photo"
@@ -63,6 +71,7 @@ const ButtonSearch = () => {
       onSubmitEditing={handleSearch}
      
     />
+    
       <ScrollView horizontal contentContainerStyle={styles.scrollContainer}>
         <View style={styles.flex}>
         {categories.map((category, index) => (
@@ -100,6 +109,7 @@ const ButtonSearch = () => {
       )}
          
     </ScrollView>
+    </>
   )
 }
 
