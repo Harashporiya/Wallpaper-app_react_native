@@ -1,19 +1,20 @@
 import { View, Text, StyleSheet, Alert } from 'react-native';
-import React, { useState } from 'react';
+import React, { FormEvent, useState } from 'react';
 import { TextInput } from 'react-native';
 import { TouchableHighlight, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { ScrollView } from 'react-native';
 import axios from 'axios';
-import { API_URL } from '../../../API/APi';
+import { API_URL } from '../API/APi';
 
-const Login = () => {
+const Login: React.FC = () => {
+  
   const navigation = useNavigation();
 
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
 
-  const handelSubmit = async()=>{
+  const handelSubmit = async(e:FormEvent<HTMLFormElement>)=>{
     if(!email.trim() || !password.trim()){
       Alert.alert("Error", "All fields are required.");
       return;
@@ -52,11 +53,11 @@ const Login = () => {
         value={password}
         onChangeText={text=>setPassword(text)}
       />
-      <TouchableHighlight onPress={handelSubmit}>
-        <Text style={styles.button}>Login</Text>
+      <TouchableHighlight >
+        <Text  onPress={handelSubmit} style={styles.button}>Login</Text>
       </TouchableHighlight>
       <View>
-        <Text style={styles.footerText}>Don't have an account? <Text onPress={() => navigation.navigate("Signup")} style={{ color: "black", fontSize: 20 }}>SignUp</Text></Text>
+        <Text style={styles.footerText}>Don't have an account? <Text onPress={() => navigation.navigate("Signup")} style={{ color: "black", fontSize: 20, fontWeight:"bold" }}>SignUp</Text></Text>
       </View>
      
     </View>
@@ -86,6 +87,8 @@ const styles = StyleSheet.create({
     color: "white",
     fontSize: 18,
     fontWeight: "bold",
+    borderRadius:10,
+    transform:[{scale:0.9}]
   },
   footerText: {
     fontSize: 18,

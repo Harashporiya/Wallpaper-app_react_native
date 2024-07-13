@@ -1,21 +1,22 @@
-import { View, Text, StyleSheet, Alert } from 'react-native'
-import React, { useEffect, useState } from 'react'
+import { View, Text, StyleSheet, Alert, TouchableOpacity, TouchableHighlightBase } from 'react-native'
+import React, { FormEvent, useEffect, useState } from 'react'
 import { TextInput } from 'react-native'
 import { TouchableHighlight, Image } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import { ScrollView } from 'react-native'
-import { API_URL } from '../../../API/APi'
+import { API_URL } from '../API/APi'
 import axios from 'axios'
+import { Button } from 'react-native-paper'
 
-const Signup = () => {
+const Signup: React.FC = () => {
   const navigation = useNavigation();
   
-  const [username, setUsername] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [username, setUsername] = useState<string>('');
+  const [email, setEmail] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
 
   
-    const handleSubmit = async()=>{
+    const handleSubmit = async(e:FormEvent<HTMLFormElement>)=>{
 
         if(!username.trim() || !email.trim() || !password.trim()){
             Alert.alert("Error", "All fields are required.");
@@ -70,11 +71,11 @@ const Signup = () => {
       value={password}
       onChangeText={text=>setPassword(text)}
     />
-    <TouchableHighlight onPress={handleSubmit} >
-      <Text style={styles.button} >Signup</Text>
+    <TouchableHighlight   >
+      <Text  onPress={handleSubmit} style={styles.button} >Signup</Text>
     </TouchableHighlight>
     <View>
-    <Text style={styles.footerText}>Already have an account?  <Text onPress={()=>navigation.navigate("Login")} style={{color:"black",fontSize:20}}>Login</Text></Text>
+    <Text style={styles.footerText}>Already have an account?  <Text onPress={()=>navigation.navigate("Login")} style={{color:"black",fontSize:20, fontWeight:"bold"}}>Login</Text></Text>
     </View>
     </View>
     </ScrollView>
@@ -104,7 +105,10 @@ const styles = StyleSheet.create({
     color:"white",
     fontSize:18,
     fontWeight:"bold",
+    transform:[{scale:0.9}],
+    borderRadius:10,
   },
+  
   footerText:{
     fontSize:18,
     textAlign:"center",

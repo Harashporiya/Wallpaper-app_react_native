@@ -6,7 +6,8 @@ import { getImageSize, wp } from './Common';
 const ImageCard = ({item,index,columns}) => {
 
     const getImageHeight =()=>{
-        let {imageHeight: height, imageWidth: width} = item;
+
+        const {imageHeight: height, imageWidth: width} = item;
         return {height: getImageSize(height,width)}
     }
 

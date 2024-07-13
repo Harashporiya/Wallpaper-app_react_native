@@ -17,20 +17,21 @@ const App = () => {
           component={Home}
           options={{ title: "Home" }}
         /> */}
-          <Stack.Screen
+          {/* <Stack.Screen
         name='Signup'
         component={Signup}
-        options={{title:"Signup"}}/>
+        options={{title:"Signup"}}/> */}
+        
         <Stack.Screen 
           name="ButtonSearch"
           component={ButtonSearch}
           options={{ title: "Pixles" }}
         />
 
-        <Stack.Screen
+        {/* <Stack.Screen
         name='Login'
         component={Login}
-        options={{title:"Login"}}/>
+        options={{title:"Login"}}/> */}
 
       
       </Stack.Navigator>
