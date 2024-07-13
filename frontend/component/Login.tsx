@@ -5,7 +5,7 @@ import { TouchableHighlight, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { ScrollView } from 'react-native';
 import axios from 'axios';
-import { API_URL } from '../../../API/APi';
+import { API_URL } from '../API/APi';
 
 const Login: React.FC = () => {
   

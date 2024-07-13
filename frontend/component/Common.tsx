@@ -16,6 +16,8 @@ export const hp = percentage =>{
     return (percentage*height)/100;
 }
 
+
+
 export const getColumnCount= ()=>{
     if(deviceWidth>=1024){
         // desktop
