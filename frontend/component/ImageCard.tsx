@@ -20,7 +20,7 @@ const ImageCard = ({ item, index, columns }) => {
   return (
     <Pressable
       style={[styles.imageWrapper, !isLastRow() && styles.spacing]}
-      onPress={() => navigation.navigate('ImageDetails', { imageUrl: item.webformatURL, imageLikes: item.likes,imageViews: item.views,imageDownloads: item.downloads })}
+      onPress={() => navigation.navigate('Image', { imageUrl: item.webformatURL, imageLikes: item.likes,imageViews: item.views,imageDownloads: item.downloads })}
     >
       <Image
         style={[styles.image, getImageHeight()]}
