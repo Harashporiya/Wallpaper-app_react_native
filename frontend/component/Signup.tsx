@@ -7,6 +7,7 @@ import { ScrollView } from 'react-native'
 import { API_URL } from '../../../API/APi'
 import axios from 'axios'
 import { Button } from 'react-native-paper'
+import AsyncStorage from '@react-native-async-storage/async-storage'
 
 const Signup: React.FC = () => {
   const navigation = useNavigation();
@@ -35,6 +36,9 @@ const Signup: React.FC = () => {
             setPassword('');
             navigation.navigate("ButtonSearch")
             Alert.alert("Success","Account created successfully!")
+            const token = response.data.token
+            await AsyncStorage.setItem('token', token);
+            console.log(token)
            
         }catch(error){
             console.log("Error", error);

@@ -7,6 +7,7 @@ import { MasonryFlashList } from "@shopify/flash-list";
 import { getColumnCount, wp } from './Common';
 import ImageCard from './ImageCard'
 import axios from 'axios';
+import { useNavigation } from '@react-navigation/native';
 
 const ButtonSearch = () => {
   const categories = [
@@ -19,7 +20,7 @@ const ButtonSearch = () => {
   const [loading, setLoading] = useState(true);
   const [query, setQuery] = useState('');
   const [currentPage, setCurrentPage] = useState(1)
-
+   const navigation = useNavigation();
 
   const fetchImages = async (searchQuery = '') => {
     try {
@@ -67,7 +68,15 @@ const ButtonSearch = () => {
 
       <ScrollView style={{ marginBottom: 0 }} >
 
+       
+
         <View style={styles.container}>
+        {/* <View style={styles.header}>
+          <Text style={styles.Pixles} onPress={navigation.navigate("Profile")}>Pixles</Text>
+         <View style={styles.round} >
+         <Image style={styles.iconImage}  source={{uri:"https://www.iconpacks.net/icons/2/free-user-icon-3296-thumb.png"}}/>
+         </View>
+        </View> */}
           <Searchbar
             placeholder="Search for photo"
             value={query}
@@ -167,6 +176,27 @@ const styles = StyleSheet.create({
     marginVertical: 16,
     alignItems: "center",
   },
+  header:{
+    flexDirection:"row",
+    justifyContent:"space-between",
+    padding:10,
+  },
+  Pixles:{
+    fontSize:25,
+    marginTop:20,
+  },
+  round:{
+    borderColor:"balck",
+    borderWidth:4,
+    borderRadius:50,
+   
+  },
+  iconImage:{
+    width:80,
+    height:80,
+  
+   
+  }
 })
 
 export default ButtonSearch

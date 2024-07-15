@@ -6,6 +6,7 @@ import { useNavigation } from '@react-navigation/native';
 import { ScrollView } from 'react-native';
 import axios from 'axios';
 import { API_URL } from '../../../API/APi';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Login: React.FC = () => {
   
@@ -30,6 +31,9 @@ const Login: React.FC = () => {
     setPassword('');
     navigation.navigate("ButtonSearch")
     Alert.alert("success", "Login Successfully!");
+    const token = response.data.token
+    await AsyncStorage.setItem('token', token);
+    console.log(token)
    }catch(error){
     console.log("error", error);
     Alert.alert("Error", "Something went wrong!");

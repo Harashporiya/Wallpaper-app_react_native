@@ -6,6 +6,7 @@ import ButtonSearch from './component/ButtonSearch';
 import Login from './component/Login';
 import Signup from './component/Signup';
 import ImageDetails from './component/ImageDetails';
+import Profile from './component/Profile';
 
 const Stack = createNativeStackNavigator();
 
@@ -19,22 +20,27 @@ const App = () => {
           component={Home}
           options={{ title: "Home" }}
         /> */}
-          <Stack.Screen
+          {/* <Stack.Screen
         name='Signup'
         component={Signup}
-        options={{title:"Signup"}}/>
+        options={{title:"Signup"}}/> */}
         
         <Stack.Screen 
           name="ButtonSearch"
           component={ButtonSearch}
-          options={{ title: "Pixles" }}
+          options={{ title: "Pixles" }} 
+          
         />
          <Stack.Screen name="Image" component={ImageDetails} />
 
-        <Stack.Screen
+        {/* <Stack.Screen
         name='Login'
         component={Login}
-        options={{title:"Login"}}/>
+        options={{title:"Login"}}/> */}
+
+        <Stack.Screen
+        name="Profile"
+        component={Profile}/>
 
       
       </Stack.Navigator>
