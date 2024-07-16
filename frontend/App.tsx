@@ -7,6 +7,8 @@ import Login from './component/Login';
 import Signup from './component/Signup';
 import ImageDetails from './component/ImageDetails';
 import Profile from './component/Profile';
+import Edit from './component/Edit';
+
 
 const Stack = createNativeStackNavigator();
 
@@ -40,8 +42,13 @@ const App = () => {
 
         <Stack.Screen
         name="Profile"
-        component={Profile}/>
+        component={Profile}
+        options={{title:"Profile"}}/>
 
+         <Stack.Screen
+         name='Edit'
+         component={Edit}
+         options={{title:"Edit"}}/>
       
       </Stack.Navigator>
 

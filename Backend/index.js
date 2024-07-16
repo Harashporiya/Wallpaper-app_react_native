@@ -5,6 +5,7 @@ const mongoose = require("mongoose")
 const User = require("./model/user")
 const userRouter = require("./route/user")
 const cors = require("cors")
+const editRouter = require("./route/edit")
 
 const jwt = require("jsonwebtoken")
 
@@ -46,5 +47,6 @@ app.get("/user/data", async (req, res) => {
 app.use(cors());
 app.use(express.json());
 app.use("/user", userRouter);
+app.use("/bio",editRouter);
 
 app.listen(PORT,'0.0.0.0',()=>console.log(`Server Started At PORT ${PORT}`))    

@@ -2,7 +2,7 @@ import { View, Text, Image, StyleSheet, ScrollView, TouchableHighlight, Activity
 import React from 'react'
 import {Searchbar } from 'react-native-paper';
 import { useState, useEffect } from 'react';
-import { API_KEY } from '../../../API/APi';
+import { API_KEY } from '../../API/APi';
 import { MasonryFlashList } from "@shopify/flash-list";
 import { getColumnCount, wp } from './Common';
 import ImageCard from './ImageCard'
@@ -71,12 +71,12 @@ const ButtonSearch = () => {
        
 
         <View style={styles.container}>
-        {/* <View style={styles.header}>
-          <Text style={styles.Pixles} onPress={navigation.navigate("Profile")}>Pixles</Text>
-         <View style={styles.round} >
-         <Image style={styles.iconImage}  source={{uri:"https://www.iconpacks.net/icons/2/free-user-icon-3296-thumb.png"}}/>
-         </View>
-        </View> */}
+        <View style={styles.header}>
+          <Text style={styles.Pixles}>Pixles</Text>
+          <TouchableHighlight onPress={() => navigation.navigate("Profile")} style={styles.round}>
+              <Image style={styles.iconImage} source={{ uri: "https://www.iconpacks.net/icons/2/free-user-icon-3296-thumb.png" }} />
+            </TouchableHighlight>
+        </View>
           <Searchbar
             placeholder="Search for photo"
             value={query}
