@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet, Image, TouchableHighlight } from 'react-native';
 import React, { useEffect, useState } from 'react';
-import { API_URL } from '../../API/APi';
+import { API_URL } from '../../../API/APi';
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation } from '@react-navigation/native';

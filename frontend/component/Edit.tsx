@@ -1,7 +1,7 @@
 import { View, Text, TextInput, StyleSheet, TouchableHighlight, ImageBackground, Alert } from 'react-native';
 import React, { useState } from 'react';
 import axios from 'axios';
-import { API_URL } from '../../API/APi';
+import { API_URL } from '../../../API/APi';
 
 const Edit = () => {
    const [profileUserName, setProfileUserName] = useState('');
